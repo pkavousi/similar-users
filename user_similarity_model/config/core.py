@@ -30,7 +30,13 @@ class ModelConfig(BaseModel):
     """
     All configuration relevant to model
     """
-    # ToDo: Add model parameters
+
+    n_neighbors: int
+    number_of_similar_users_to_show: int
+    nearestneighbors_algorithm: str
+    metric: str
+    date_to_filter: str
+    categorical_vars: List[str]
 
 
 class Config(BaseModel):
