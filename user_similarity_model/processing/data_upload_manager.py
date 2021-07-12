@@ -41,7 +41,7 @@ def _create_tables():
 
 
 def upload_csv():
-    """ Upload the csv to tables in the PostgreSQL database using the
+    """Upload the csv to tables in the PostgreSQL database using the
     credentials in the config.yml file
     """
     _create_tables()
