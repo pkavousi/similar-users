@@ -1,0 +1,22 @@
+# Package Overview
+package_name: user_similarity_model
+
+#Database specs: A PostgreSQL database server is set up in Azure
+# to host the CSV files. Here are the credentials to access it via Python
+database_specs:
+  dbname: postgres
+  host: postgresql-pk.postgres.database.azure.com
+  user: payam_123@postgresql-pk
+  password: test_sql_2020
+  port: 5432
+  sslmode: 'require'
+
+# I uploaded CSV files to Azure az one time task. The
+# name of CSV files will be used in the code to run unit testing
+# such as connection test to Azure
+#list of csv files to be loaded in Azure Postgressql
+csv_files:
+  - course_tags.csv
+  - user_assessment_scores.csv
+  - user_course_views.csv
+  - user_interests.csv
