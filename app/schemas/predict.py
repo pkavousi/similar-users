@@ -1,0 +1,26 @@
+from typing import Any, List, Optional
+
+from pydantic import BaseModel
+
+from user_similarity_model.processing.validation import UserDataInputSchema
+
+
+class PredictionResults(BaseModel):
+    errors: Optional[Any]
+    version: str
+    predictions: Optional[List[float]]
+
+
+class MultipleUserDataInputs(BaseModel):
+    inputs: List[UserDataInputSchema]
+
+    class Config:
+        schema_extra = {
+            "example": {
+                "inputs": [
+                    {
+                        "user_handle": 20,
+                    }
+                ]
+            }
+        }
