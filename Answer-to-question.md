@@ -13,7 +13,10 @@ The solution is have the norm 2 Euclidean distance on normalized feature vector,
 the pipline. The metric in the config.yml file is "Minkowski" with a P=2, which is the same as Euclidean.
 ###
 2. **We have provided you with a relatively small sample of users. At true scale, the number of users, and their associated behavior, would be much larger. What considerations would you make to accommodate that?**  
-- I would first focus on the Database side, for example index the user alphabetically, or fo example partition the data based on the view date or registration date. Then I leverage the partitions filter in my SQL ETL, for example for a View_date, I add a view_date_mnth and apply it in a "where" clauses, such as
+
+- We can precompute a table with nearest neighbors(e.g. 10 most similar users) for each user on daily basis and save it in Azure database. Then a call to the API  directly query the database and lower the response time. This comes with the cost of precomputing job on daily basis but the API response could be very fast. 
+
+- I would also look into optimization on the Database side, for example index the user alphabetically, or fo example partition the data based on the view date or registration date. Then I leverage the partitions filter in my SQL ETL for feature generations, for example for a View_date, I add a view_date_mnth and apply it in a "where" clauses, such as
 ###
 ```
 where
@@ -22,9 +25,9 @@ where
 ###
 - Moreover, leveraging Spark/Pyspark/sparksql could distribute the jobs efficiently in a cluster and improve the efficiency of querying the databse. The SQL scripts themselves have room for improvement. I used several CTEs for table, which could have been avoided by joinig tables alltoghether in one query using nested queries. This could harm or improve efficiency depends on the spark cluster. However, I kept the CTEs separate to keep the process clear to understand and debug.
 
-- It happens that using 30 million rows of data does not change the model performance significantly from a case that we use just 10 milion rows. So, I could explore this to say for example that we can just go with the data after 2015.
+- It could happen that using 30 million rows of data does not change the model performance significantly from a case that we use just 10 milion rows. So, I could explore this to say for example that we can just go with the data after 2015.
 
-- Finally, the API side of the code can be improved using async capacities of python3.
+- Finally, the API side of the code can be improved for example by direct query the pre-computed nearestneighbor table.
 ###
 3. **Given the context for which you might assume an API like this would be used, is there anything else you would think about? (e.g. other data you would like to collect?**
 - I would collect the demographic data if law lets me and have the user permission.features such as age, sex, state, zipcode, level of education, occupation, company, level of seniority could potentially help to find similar users better.
