@@ -8,7 +8,7 @@ from setuptools import find_packages, setup
 # Package meta-data.
 NAME = 'user-similarity-model'
 DESCRIPTION = "Find similar users for a recommendation engine "
-URL = "https://github.com/pkavousi/test.git"
+URL = "https://github.com/pkavousi/similar-users"
 EMAIL = "payam.kavousi@gmail.com"
 AUTHOR = "PayamKG"
 REQUIRES_PYTHON = ">=3.6.0"
