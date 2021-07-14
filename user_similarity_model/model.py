@@ -23,12 +23,12 @@ class SimilarityModel(BaseEstimator, TransformerMixin):
         self.n_neighbors = n_neighbors
         self.algorithm = algorithm
         self.metric = metric
-
-    def fit(self, X, y=None):
-        """fit method uses the transformed dataset to fit a NearestNeighbors model""F"""
         self.nbrs = NearestNeighbors(
             n_neighbors=self.n_neighbors, algorithm=self.algorithm, metric=self.metric
         )
+
+    def fit(self, X, y=None):
+        """fit method uses the transformed dataset to fit a NearestNeighbors model"""
         X = X.set_index("user_handle")
         self.data = X
         self.nbrs.fit(X)
