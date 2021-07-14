@@ -27,6 +27,7 @@ This repository can be run on Python 3 and uses tox tool extensively to test pac
 4- run "tox", this will perform the steps in tox.ini file in its virtual environmet
 5- tox -e app_run
 6- A server will be available. Please refer to the short screencast that shows the steps
+7- After testing you can press ctrl+c to exit.
 ```
 ## Screencast
 The demo of the project is available at this YouTube link:
