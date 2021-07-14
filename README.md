@@ -7,7 +7,6 @@
    * [Screencast](#Screencast)
    * [Comments and future improvements](#Comments-and-future-improvements)
    * [Project folder structure](#Project-folder-structure)
-   * [References](#References)
 
 ***
 ## Overview
@@ -28,6 +27,18 @@ This repository can be run on Python 3 and uses tox tool extensively to test pac
 5- tox -e app_run
 6- A server will be available. Please refer to the short screencast that shows the steps
 ```
+## Screencast
+The demo of the project is available at this YouTube link:
+https://youtu.be/yr2Wewo7UuA
+
+## Comments-and-future-improvements
+The error handling of this code repo needs improvement. Currently the API does not return the error and the error associated with the API are available through the console. I plan to improve this part.
+
+The code is written to be integrated in a CircleCi CI pipeline. The next steop is to push the model package to Gemfury or any other artifactory, make a docker image, and deploy the model using services like Amazon ECS or Azure AKS. That could streamline the end-to-end machine learning model.
+
+The SQL files in this repo are flexible to add more feature engineerings and also assign a date filter in case we are actually pully data from a Postgresql SQL with table which have milion rows of data.  
+
+Unit Tests are run as part of training pipeline and application runs. The code structure is flexible to add more unit tests.
 
 ## Project-folder-structure
 ```
