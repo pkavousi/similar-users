@@ -1,3 +1,9 @@
+# Authors: payam.kavousi@gmail.com
+"""
+This module returns a config file which is widely
+used in this code. It uses config.yml file to construct
+ the config file
+"""
 from pathlib import Path
 from typing import Dict, List
 

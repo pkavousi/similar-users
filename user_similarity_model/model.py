@@ -1,3 +1,8 @@
+# Authors: payam.kavousi@gmail.com
+"""
+This module provides a estimator with fit-predict methods
+"""
+
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.neighbors import NearestNeighbors
 
@@ -30,6 +35,7 @@ class SimilarityModel(BaseEstimator, TransformerMixin):
         return self
 
     def predict(self, user_handler):
+        """retuns top similar users to giver user_handle"""
         if user_handler > max(self.data.index) or user_handler < min(self.data.index):
             raise ValueError(
                 ("user handle should be an integer between {} and {}").format(

@@ -1,3 +1,8 @@
+# Authors: payam.kavousi@gmail.com
+"""
+This module provides a two step SKlearn pipeline for preprocessing
+"""
+
 from feature_engine.encoding import OrdinalEncoder
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import MinMaxScaler

@@ -1,3 +1,8 @@
+# Authors: payam.kavousi@gmail.com
+"""
+This module provide a databse data pull test for all tables
+"""
+
 import os
 
 import pandas as pd
@@ -7,14 +12,17 @@ from user_similarity_model.config.core import SQL_DIR, config
 
 
 def test_course_tag_pull(sample_local_data):
+    """Test if the data that is pulled from database is consistent with
+    local version"""
 
+    # establish a connection to the Azure PostgreSql
     conn = psycopg2.connect(**config.app_config.database_specs)
     cur = conn.cursor()
-    # create table one by one
-    # for command in commands:
-    #     cur.execute(command)
+
+    # Open the test sql file and load the query
     with open(os.path.join(SQL_DIR, "test-sql-fetch.sql")) as file:
         query = file.read().split(";")
+    # run the query and fetch the results in a pandas DF
     cur.execute(query[0])
     rows = cur.fetchall()
     courses_remote = pd.DataFrame(rows, columns=["count"]).loc[0, "count"]
@@ -22,6 +30,7 @@ def test_course_tag_pull(sample_local_data):
     courses_local = local_df_course_tag[
         local_df_course_tag.course_id == "2d-racing-games-unity-volume-2-1286"
     ].shape[0]
+    # are local and remote consistent?
     assert courses_remote == courses_local
 
     # test a score between two databases

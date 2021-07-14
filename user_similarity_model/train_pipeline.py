@@ -1,3 +1,8 @@
+# Authors: payam.kavousi@gmail.com
+"""
+This module provides runs the training
+"""
+
 from pipeline import pipe
 from processing.modeling_data_manager import load_abt_raw, save_pipeline
 
@@ -5,8 +10,8 @@ import user_similarity_model.model as pred
 
 
 def run_training():
-    """Train the model."""
-    # read training data
+    """Train the model and save the model"""
+    # read training data from Azure Postgresql
     data = load_abt_raw()
     columns = [col for col in data.columns if col != "user_handle"]
     data["latest_interest_tag"] = data["latest_interest_tag"].astype("O")
