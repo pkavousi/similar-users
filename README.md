@@ -7,6 +7,7 @@
    * [Screencast](#Screencast)
    * [Comments and future improvements](#Comments-and-future-improvements)
    * [Project folder structure](#Project-folder-structure)
+   * [References](#References)
 
 ***
 ## Overview
@@ -111,3 +112,5 @@ Unit Tests are run as part of training pipeline and application runs. The code s
     ├── requires.txt
     └── top_level.txt
 ```
+## References
+![Effects of Distance Measure Choice on KNN Classifier Performance - A Review](https://arxiv.org/pdf/1708.04321.pdf)
