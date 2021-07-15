@@ -34,7 +34,7 @@ The demo of the project is available at this YouTube link:
 https://youtu.be/a2RgKHqN9S0
 
 ## Comments-and-future-improvements
-The error handling of this code repo needs improvement. Currently the API does not return the error and the error associated with the API are available through the console. I plan to improve this part.
+The error handling of this code repo needs some improvement including dynamically getting the maximum allowed number as a user_handle based on what is available in the databse. I am planing to improve this part.
 
 The code can be integrated in a CircleCi CI pipeline. The next steop is to push the model package to Gemfury or any other artifactory, make a docker image, and deploy the model using services like Amazon ECS or Azure AKS. That could streamline the end-to-end machine learning model.
 
