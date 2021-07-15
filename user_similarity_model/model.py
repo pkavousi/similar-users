@@ -36,12 +36,6 @@ class SimilarityModel(BaseEstimator, TransformerMixin):
 
     def predict(self, user_handler):
         """retuns top similar users to giver user_handle"""
-        if user_handler > max(self.data.index) or user_handler < min(self.data.index):
-            raise ValueError(
-                ("user handle should be an integer between {} and {}").format(
-                    min(self.data.index), max(self.data.index)
-                )
-            )
         index = self.nbrs.kneighbors(
             self.data.loc[[user_handler]],
             n_neighbors=self.n_neighbors + 1,
