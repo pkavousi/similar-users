@@ -36,11 +36,11 @@ https://youtu.be/a2RgKHqN9S0
 ## Comments-and-future-improvements
 The error handling of this code repo needs improvement. Currently the API does not return the error and the error associated with the API are available through the console. I plan to improve this part.
 
-The code is written to be integrated in a CircleCi CI pipeline. The next steop is to push the model package to Gemfury or any other artifactory, make a docker image, and deploy the model using services like Amazon ECS or Azure AKS. That could streamline the end-to-end machine learning model.
+The code can be integrated in a CircleCi CI pipeline. The next steop is to push the model package to Gemfury or any other artifactory, make a docker image, and deploy the model using services like Amazon ECS or Azure AKS. That could streamline the end-to-end machine learning model.
 
-The SQL files in this repo are flexible to add more feature engineerings and also assign a date filter in case we are actually pully data from a Postgresql SQL with table which have milion rows of data.  
+The SQL files in this repo are flexible to add more feature engineerings and also assign a date filter in case we are actually pulling data from a Postgresql database with tables, which have milion rows of data.  
 
-Unit Tests are run as part of training pipeline and application runs. The code structure is flexible to add more unit tests.
+Unit Tests are run as a part of training pipeline and application runs. The code structure is flexible to add more unit tests.
 
 ## Project-folder-structure
 ```
